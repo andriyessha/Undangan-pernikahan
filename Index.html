@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Pernikahan Andri & Yessha</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #000;
+      color: gold;
+      background-size: cover;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .section {
+      margin: 2rem 0;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+    input, textarea, button {
+      display: block;
+      margin: 0.5rem auto;
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+    button {
+      background-color: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    audio {
+      margin-top: 1rem;
+    }
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Andri & Yessha</h1>
+  <h2>Undangan Pernikahan</h2>
+  <p>Sukadana, 9 Oktober 2025</p>
+
+  <!-- Musik Latar -->
+  <div class="section">
+    <p>Musik Latar: Lagu dari Teduh</p>
+    <audio controls autoplay loop>
+      <source src="https://example.com/lagu-teduh.mp3" type="audio/mpeg">
+      Browser Anda tidak mendukung audio.
+    </audio>
+  </div>
+
+  <!-- Hitung Mundur -->
+  <div class="section">
+    <h3>Menuju Hari Bahagia</h3>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section">
+    <h3>Konfirmasi Kehadiran (RSVP)</h3>
+    <form>
+      <input type="text" placeholder="Nama Anda" required />
+      <select required>
+        <option value="">Pilih Kehadiran</option>
+        <option value="hadir">Saya akan hadir</option>
+        <option value="tidak">Maaf, saya tidak bisa hadir</option>
+      </select>
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <!-- Buku Tamu -->
+  <div class="section">
+    <h3>Buku Tamu</h3>
+    <form>
+      <input type="text" placeholder="Nama Anda" required />
+      <textarea rows="4" placeholder="Ucapan dan Doa..." required></textarea>
+      <button type="submit">Kirim Ucapan</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>Terima kasih atas doa dan restu Anda. Sampai jumpa di hari bahagia kami.</p>
+  </div>
+
+  <!-- Script Countdown -->
+  <script>
+    const countdownDate = new Date("October 9, 2025 08:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        clearInterval(x);
+        countdownEl.innerHTML = "Hari Bahagia Telah Tiba!";
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdownEl.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
